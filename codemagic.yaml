@@ -9,6 +9,7 @@ workflows:
     scripts:
       - cd example && flutter packages pub get
       - cd example && flutter build apk --debug
+      - cd example && flutter build ios --debug
 
     artifacts:
       - example/flutter_drive.log
