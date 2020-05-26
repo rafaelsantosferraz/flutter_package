@@ -8,7 +8,7 @@ cddworkflows:
       cocoapods: default
     scripts:
       - cd example && flutter packages pub get
-      - flutter build android --debug
+      - flutter build apk --debug
 
     artifacts:
       - example/flutter_drive.log
