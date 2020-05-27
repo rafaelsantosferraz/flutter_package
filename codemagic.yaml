@@ -8,14 +8,9 @@ workflows:
       cocoapods: default
     scripts:
       - cd example && flutter packages pub get
+      - flutter test
+      - cd example && flutter test
       - cd example && flutter build apk --debug
-      - cd example && find . -name "Podfile" -execdir pod install \;
-      - cd example && keychain initialize
-      - cd example && app-store-connect fetch-signing-files "io.codemagic.app" \  # Fetch signing files for specified bundle ID
-        --type IOS_APP_DEVELOPMENT \  # Specify provisioning profile type*
-        --create  # Allow creating resources if existing are not found.
-      - cd example && keychain add-certificates
-      - cd example && flutter build ios --debug --flavor dev --no-codesign
 
     artifacts:
       - example/flutter_drive.log
